@@ -1,0 +1,9 @@
+docs
+local_data
+*.o
+*.so
+.vscode
+..Rcheck
+check
+.html
+/.quarto/
