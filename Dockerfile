@@ -6,7 +6,7 @@ LABEL name="Ensembld EnsDb annotation databases" \
     description="Docker image to create EnsDb databases from Ensembl" \
     license="Artistic-2.0"
 
-ARG ens_version=114
+ARG ens_version=113
 ENV ens_version=$ens_version
 
 ## Setup system requirements
