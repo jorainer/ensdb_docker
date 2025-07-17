@@ -12,7 +12,6 @@ ENV ens_version=$ens_version
 ## Setup system requirements
 RUN apt-get update && \
     apt-get install -y wget dirmngr curl libcurlpp-dev libxml2-dev software-properties-common mysql-server mysql-client mysql-common libdbd-mysql libmysqlclient-dev perlbrew bzip2 git
-    # apt-get install -y wget mariadb-server mariadb-client libmariadb-dev libmariadb-dev-compat perlbrew bzip2
 
 ## Fixing permissions for MySQL
 RUN echo "local_infile=1" >> /etc/mysql/mysql.conf.d/mysql.cnf && \
@@ -88,4 +87,4 @@ COPY scripts/create-ensdb.R /root/
 RUN chmod a+x /root/create-ensdb.sh
 
 ENTRYPOINT ["/root/create-ensdb.sh"]
-CMD ["homo_sapiens"]
+CMD ["homo_sapiens", "ftp://ftp.ensembl.org/pub/release-${ens_version}/mysql/"]
