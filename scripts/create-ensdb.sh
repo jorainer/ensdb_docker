@@ -1,7 +1,17 @@
 #! /bin/bash
 SPEC=$1
+
+if [ $# -eq 1 ]
+then
+    FTP_FOLDER="ftp://ftp.ensembl.org/pub/release-${ens_version}/mysql/"
+else
+    FTP_FOLDER=$2
+fi
+
 echo "Processing species: $SPEC"
+echo "ftp folder: $FTP_FOLDER"
 export species=$SPEC
+export ftp_folder=$FTP_FOLDER
 
 OUT_DIR="/ensdb_dir"
 if [ ! -d "$OUT_DIR" ]; then

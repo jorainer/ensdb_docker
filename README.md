@@ -41,3 +41,15 @@ docker run -v /tmp:/ensdb_dir jorainer/ensdb_docker:release_114 caenorhabditis_e
 
 Where `-v /tmp:/ensdb_dir` defines the path where the resulting SQLite file will
 be stored to (i.e., to a directory */tmp*).
+
+To create an `EnsDb` for species provided through
+[ensemblgenomes](https://ensemblgenomes.org/) the base ftp server url containing
+the respective annotation database dumps needs to be specified. Note also that
+Ensemblgenomes and Ensembl use different release version numbers. The command
+below creates an `EnsDb` for the fungus *Aspergillus nidulans*. Note also the
+trailing */* for the FTP server directory.
+
+```
+docker run -v /tmp:/ensdb_dir jorainer/ensdb_docker:release_114
+aspergillus_nidulans ftp://ftp.ensemblgenomes.org/pub/release-61/fungi/mysql/
+```
