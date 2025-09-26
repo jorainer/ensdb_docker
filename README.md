@@ -20,7 +20,9 @@ to the guest (docker) internal */ensdb_dir* directory.
 
 The Ensembl version is defined through the tag of the docker image,
 e.g. *jorainer/ensdb_docker:release_114* will create a database with annotations
-from Ensembl release 114.
+from Ensembl release 114. Change *114* with the Ensembl release version you
+need - if for the specified release version no docker image can be found open an
+issue to request the specific docker image.
 
 The path to store the generated needs to be configured by mapping the respective
 (local) folder to the */ensdb_dir* docker-internal directory.
