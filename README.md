@@ -19,8 +19,8 @@ to the guest (docker) internal */ensdb_dir* directory.
 ## Configuration/settings
 
 The Ensembl version is defined through the tag of the docker image,
-e.g. *jorainer/ensdb_docker:release_114* will create a database with annotations
-from Ensembl release 114.
+e.g. *jorainer/ensdb_docker:release_115* will create a database with annotations
+from Ensembl release 115.
 
 The path to store the generated needs to be configured by mapping the respective
 (local) folder to the */ensdb_dir* docker-internal directory.
@@ -33,10 +33,10 @@ i.e., *mus_musculus* for mouse, *homo_sapiens* for human etc. It defaults to
 ## Example
 
 To create an `EnsDb` SQLite database file for *c elegans* and Ensembl release
-114 use:
+115 use:
 
 ```
-docker run -v /tmp:/ensdb_dir jorainer/ensdb_docker:release_114 caenorhabditis_elegans
+docker run -v /tmp:/ensdb_dir jorainer/ensdb_docker:release_115 caenorhabditis_elegans
 ```
 
 Where `-v /tmp:/ensdb_dir` defines the path where the resulting SQLite file will
@@ -50,6 +50,6 @@ below creates an `EnsDb` for the fungus *Aspergillus nidulans*. Note also the
 trailing */* for the FTP server directory.
 
 ```
-docker run -v /tmp:/ensdb_dir jorainer/ensdb_docker:release_114
+docker run -v /tmp:/ensdb_dir jorainer/ensdb_docker:release_115
 aspergillus_nidulans ftp://ftp.ensemblgenomes.org/pub/release-61/fungi/mysql/
 ```

@@ -3,10 +3,10 @@ FROM ubuntu:24.04
 LABEL name="Ensembld EnsDb annotation databases" \
     url="https://github.com/jorainer/ensdb_docker" \
     maintainer="johannes.rainer@gmail.com" \
-    description="Docker image to create EnsDb databases from Ensembl" \
+    description="Docker image to create EnsDb databases from Ensembl release 115" \
     license="Artistic-2.0"
 
-ARG ens_version=114
+ARG ens_version=115
 ENV ens_version=$ens_version
 
 ## Setup system requirements
