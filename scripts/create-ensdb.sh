@@ -8,17 +8,10 @@ else
     FTP_FOLDER=$2
 fi
 
-DROP_FILES="TRUE"
-if [ $# -eq 3 ]
-then
-    DROP_FILES=$3
-fi
-
 echo "Processing species: $SPEC"
 echo "ftp folder: $FTP_FOLDER"
 export species=$SPEC
 export ftp_folder=$FTP_FOLDER
-export drop_files=$DROP_FILES
 
 OUT_DIR="/ensdb_dir"
 if [ ! -d "$OUT_DIR" ]; then
@@ -34,4 +27,5 @@ service mysql start
 
 Rscript "./create-ensdb.R"
 
+mv *.txt "$OUT_DIR/"
 mv *.sqlite "$OUT_DIR/"
