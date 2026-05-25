@@ -76,8 +76,9 @@ RUN apt update
 RUN wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc && \
     add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu noble-cran40/" && \
     apt -y install r-base
-RUN Rscript -e "install.packages(c('BiocManager'))" && \
-    Rscript -e "BiocManager::install(c('ensembldb', 'RMariaDB'))"
+RUN Rscript -e "install.packages(c('BiocManager', 'remotes'))" && \
+    Rscript -e "BiocManager::install(c('ensembldb', 'RMariaDB'))" && \
+    Rscript -e "BiocManager::install('jorainer/ensembldb')"
 
 RUN apt clean
 
