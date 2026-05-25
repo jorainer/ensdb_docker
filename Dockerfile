@@ -76,15 +76,16 @@ RUN apt update
 RUN wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc && \
     add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu noble-cran40/" && \
     apt -y install r-base
-RUN Rscript -e "install.packages(c('BiocManager', 'remotes'))" && \
+RUN Rscript -e "install.packages(c('BiocManager'))" && \
     Rscript -e "BiocManager::install('RMariaDB')" && \
-    Rscript -e "BiocManager::install('jorainer/ensembldb')"
+    Rscript -e "BiocManager::install('ensembldb')"
 
 RUN apt clean
 
 ## Copying the shell script that does the work
 COPY scripts/create-ensdb.sh /root/
 COPY scripts/create-ensdb.R /root/
+COPY scripts/generate-EnsDBs.R /root/
 RUN chmod a+x /root/create-ensdb.sh
 
 ENTRYPOINT ["/root/create-ensdb.sh"]

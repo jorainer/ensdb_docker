@@ -39,12 +39,6 @@ To create an `EnsDb` SQLite database file for *c elegans* and Ensembl release
 docker run -v /tmp:/ensdb_dir jorainer/ensdb_docker:release_115 caenorhabditis_elegans
 ```
 
-```
-docker run -v /tmp:/ensdb_dir 2cabbfbdd546 caenorhabditis_elegans ftp://ftp.ensembl.org/pub/release-115/mysql/ FALSE
-
-```
-
-
 Where `-v /tmp:/ensdb_dir` defines the path where the resulting SQLite file will
 be stored to (i.e., to a directory */tmp*).
 

@@ -7,8 +7,8 @@ message("Building EnsDb for ", SPECIES, " ensembl version ", ENS_VERSION)
 if (!length(readLines("ftp://ftp.ensembl.org/robots.txt")))
     stop("Can not connect to ensembl ftp")
 
-source(system.file("scripts/generate-EnsDBs.R", package = "ensembldb"))
+source("/root/generate-EnsDBs.R")
 createEnsDbForSpecies(ftp_folder = FTP_FOLDER, ens_version = ENS_VERSION,
                       species = SPECIES, user = "root",
                       host = "localhost", pass = "",
-                      dropIntermediateFiles = FALSE)
+                      dropIntermediateFiles = TRUE)
