@@ -78,7 +78,7 @@ RUN wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc |
     apt -y install r-base
 RUN Rscript -e "install.packages(c('BiocManager'))" && \
     Rscript -e "BiocManager::install('RMariaDB')" && \
-    Rscript -e "BiocManager::install('ensembldb')"
+    Rscript -e "BiocManager::install('jorainer/ensembldb')"
 
 RUN apt clean
 
