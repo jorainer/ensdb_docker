@@ -11,4 +11,4 @@ source("/root/generate-EnsDBs.R")
 createEnsDbForSpecies(ftp_folder = FTP_FOLDER, ens_version = ENS_VERSION,
                       species = SPECIES, user = "root",
                       host = "localhost", pass = "",
-                      dropIntermediateFiles = TRUE)
+                      dropIntermediateFiles = FALSE)
